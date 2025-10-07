@@ -1,0 +1,18 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-slate-50 text-slate-900; }
+
+.card-scene { perspective: 2000px; }
+.card { transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.card.flip { transform: rotateY(180deg); }
+.card-side { backface-visibility: hidden; }
+.card-back { transform: rotateY(180deg); }
+
+.shine { position:relative; overflow:hidden; }
+.shine:after { content:""; position:absolute; inset:-120% -150%; background:linear-gradient(75deg,transparent 0%,rgba(255,255,255,.15) 45%,rgba(255,255,255,.35) 50%,rgba(255,255,255,.15) 55%,transparent 100%); transform:translateX(-100%); }
+.shine:hover:after { animation: sweep 1.2s ease; }
+@keyframes sweep { to { transform: translateX(100%); } }
